@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import Produto from './interfaces/product';
-import { CCard, CCol, CRow } from '@coreui/react';
+import { CButton, CCard, CCol, CRow } from '@coreui/react';
 
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <div className='container_tabela'>
+      <CCard className='container_tabela'>
 
         {!somente_promo ? ordenar_produtos().map((_, i) => (
 
@@ -63,7 +63,7 @@ function App() {
           </CCard>
         ))}
 
-        <button onClick={() => set_somente_promo(!somente_promo)}>{somente_promo ? `Ocultar Produtos com Promo` : `Exibir Produtos com Promo`}</button>
+        <CButton onClick={() => set_somente_promo(!somente_promo)}>{somente_promo ? `Ocultar Produtos com Promo` : `Exibir Produtos com Promo`}</CButton>
       </div>
     </>
   )
