@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import Produto from './interfaces/product';
+import { CCard, CCol, CRow } from '@coreui/react';
 
 function App() {
 
@@ -44,22 +45,22 @@ function App() {
 
         {!somente_promo ? ordenar_produtos().map((_, i) => (
 
-          <tr className='info_produtos' key={i}>
-            <td>
-              <li>Nome: {_.nome}</li>
-              <li>Preço: R${_.preco.toFixed(2)}</li>
-              <li>Quantidade de Dias: {_.quantidade_de_dias}</li>
-            </td>
-          </tr>
+          <CCard className='info_produtos' key={i}>
+            <CRow>
+              <CCol>Nome: {_.nome}</CCol>
+              <CCol>Preço: R${_.preco.toFixed(2)}</CCol>
+              <CCol>Quantidade de Dias: {_.quantidade_de_dias}</CCol>
+            </CRow>
+          </CCard>
         )) : produtos_com_promo.map((_, i) => (
 
-          <tr key={i}>
-            <td>
-              <li>Nome: {_.nome}</li>
-              <li>Preço: R${_.preco.toFixed(2)}</li>
-              <li>Quantidade de Dias: {_.quantidade_de_dias}</li>
-            </td>
-          </tr>
+          <CCard key={i}>
+            <CRow>
+              <CCol>Nome: {_.nome}</CCol>
+              <CCol>Preço: R${_.preco.toFixed(2)}</CCol>
+              <CCol>Quantidade de Dias: {_.quantidade_de_dias}</CCol>
+            </CRow>
+          </CCard>
         ))}
 
         <button onClick={() => set_somente_promo(!somente_promo)}>{somente_promo ? `Ocultar Produtos com Promo` : `Exibir Produtos com Promo`}</button>
